@@ -11,10 +11,10 @@ const campInstance = axios.create({
   },
 });
 
-export const getCamping = () => {
+export const getCamping = ({ queryKey }) => {
+  const [lon, lat] = queryKey;
+
   return campInstance
-    .get(
-      `/locationBasedList?mapX=${127.6622221}&mapY=${34.7603737}&radius=${5000}`
-    )
+    .get(`/locationBasedList?mapX=${lon}&mapY=${lat}&radius=${5000}`)
     .then((res) => res.data);
 };

@@ -41,11 +41,15 @@
 
     [x] 라우터 연결
     [x] 깃허브 연결
-    [] 필요한 api 연결
-    [] 검색 폼 제작 후 연결 확인
+    [x] 필요한 api 연결
+    [x] 검색 폼 제작 후 연결 확인
+    [] select 폼 제작 후 연결 확인
+    [] 헤더 제작
+    [] 푸터 제작
 
 #### 설치 라이브러리
 
 - React Router DOM
 - axios
 - @tanstack/react-query
+- react-hook-form
