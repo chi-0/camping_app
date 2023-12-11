@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# 프로젝트명: 캠핑장 찾는 사이트(캠핑장 검색)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 제작의도:
 
-## Available Scripts
+- 캠핑을 가고싶은 사람들이 다양한 캠핑장에 대한 정보를 얻고 기록하여 정보를 저장하기 위한 사이트
 
-In the project directory, you can run:
+## 예상 기능:
 
-### `npm start`
+- 내 주변 캠핑장 찾기, 지역별 캠핑장 검색, 내가 가본 캠핑장 기록
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 예상 사이트맵:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- home - myCamping, search, 404
 
-### `npm test`
+### 계획:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- mycamping - 내가 가본 캠핑장을 기록하는 곳(좋았던 곳과 안좋았던 곳을 - - 기록해서 다음 캠핑때 참고 하기 위함)
+- serch - 내 주변이 아니더라도 다른 지역으로 캠핑을 가고 싶어 하는 사람들을 위해 원하는 지역을 검색하면 근처 캠핑장이 나오게 구성 또는 소개받은 캠핑장을 검색하여 정보를 얻기 위한 목적
 
-### `npm run build`
+#### 디자인 일정(5일)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    12.8(금): 기획안 컴펌 후 디자인 리서치
+    12.9(토): 디자인 리서치 & 와이어 프레임 제작(모바일 사이즈)
+    12.10(일): 반응형 디자인 제작
+    12.11(월): 와이어 프레임 컴펌 및 수정
+    12.12(화): 개발 진행
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### 개발 진행(9일)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    12.12 (화): 라우터 제작 후 필요한 api 연결 후 확인
+    12.13(수): 필요한 api가 추가로 있으면 확인 후 경도 위도에 대한 데이터 검색 후 매칭 테스트
+    12.14(목): 헤더 및 푸터 제작 및 홈 제작
+    12.15(금): 홈 제작, 마이캠핑 제작
+    12.16(토): 서치, 404페이지 제작
+    12.17(일): 필요한 기능 추가 제작 및 인터렉션 제작
+    12.18(월): 필요한 기능 추가 제작 및 컴펌
+    12.19(화): 배포 테스트 및 오류 확인 후 수정
+    12.20(수): 마무리 배포테스트
 
-### `npm run eject`
+#### 개발 순서
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+[x] 라우터 연결
+[] 깃허브 연결
+[] 필요한 api 연결
+[] 검색 폼 제작 후 연결 확인
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### 설치 라이브러리
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React Router DOM
