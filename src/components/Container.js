@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 const Wrap = styled.div`
   width: 100%;
-  padding: 160px 10%;
+  padding: 30px 10%;
+  padding-bottom: 120px;
 `;
 
 export const Container = ({ children }) => {

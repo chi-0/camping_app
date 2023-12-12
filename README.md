@@ -43,9 +43,9 @@
     [x] 깃허브 연결
     [x] 필요한 api 연결
     [x] 검색 폼 제작 후 연결 확인
+    [x] 헤더 제작
+    [x] 푸터 제작
     [] select 폼 제작 후 연결 확인
-    [] 헤더 제작
-    [] 푸터 제작
 
 #### 설치 라이브러리
 
@@ -56,3 +56,5 @@
 - styled-components
 - styled-reset
 - fontawesome
+- react-redux
+- redux

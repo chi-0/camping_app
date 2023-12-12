@@ -1,14 +1,22 @@
 import { useQueries } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 import { getCamping } from "../../api";
 import { useCurrentLocation } from "../../lib/useCurrentLocation";
+import { useSelector } from "react-redux";
+import styled from "styled-components";
+import { Container } from "../../components/Container";
+
+const KakaoMap = styled.div`
+  width: 600px;
+  height: 600px;
+`;
 
 export const Search = () => {
   const { kakao } = window;
-  const [isLocation, setIsLocation] = useState();
   const [isLon, setIsLon] = useState();
   const [isLat, setIsLat] = useState();
+
+  const searchLocation = useSelector((state) => state.value);
 
   const { address } = useCurrentLocation();
   const imageSrc =
@@ -49,7 +57,7 @@ export const Search = () => {
         marker.setMap(map);
       }
     };
-    geocoder.addressSearch(isLocation ? isLocation : address, callback); // 좌표 변환
+    geocoder.addressSearch(searchLocation ? searchLocation : address, callback); // 좌표 변환
 
     campingData?.map((data) => {
       const imageSize = new kakao.maps.Size(24, 35);
@@ -70,7 +78,7 @@ export const Search = () => {
     kakao.maps.Map,
     kakao.maps.services.Geocoder,
     kakao.maps.services.Status.OK,
-    isLocation,
+    searchLocation,
     address,
     kakao.maps.Marker,
     kakao.maps.MarkerImage,
@@ -78,35 +86,9 @@ export const Search = () => {
     campingData,
   ]);
 
-  const {
-    register,
-    handleSubmit,
-    // formState: { errors, isValid },
-  } = useForm();
-
-  const submitHandler = (data) => {
-    const { search } = data;
-    setIsLocation(search);
-  };
-
   return (
-    <div>
-      <div
-        id="map"
-        style={{
-          width: "500px",
-          height: "500px",
-        }}
-      ></div>
-      <form onSubmit={handleSubmit(submitHandler)}>
-        <input
-          {...register("search", {
-            required: true,
-          })}
-          type="text"
-          placeholder="검색"
-        />
-      </form>
-    </div>
+    <Container>
+      <KakaoMap id="map" />
+    </Container>
   );
 };

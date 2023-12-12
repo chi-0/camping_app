@@ -4,7 +4,8 @@ import { mainColor } from "../../style/GlobalStyled";
 import { Link } from "react-router-dom";
 
 const Con = styled.div`
-  width: 385px;
+  max-width: 385px;
+  width: 100%;
   height: 385px;
   border: 2px solid #cacaca;
   border-radius: 10px;
@@ -14,6 +15,10 @@ const Con = styled.div`
   align-items: center;
   padding: 30px;
   position: relative;
+
+  &:hover {
+    border: 2px solid ${mainColor};
+  }
 
   > svg {
     font-size: 100px;
