@@ -54,3 +54,5 @@
 - @tanstack/react-query
 - react-hook-form
 - styled-components
+- styled-reset
+- fontawesome
