@@ -53,3 +53,4 @@
 - axios
 - @tanstack/react-query
 - react-hook-form
+- styled-components
