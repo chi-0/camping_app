@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const HearderWrap = styled.header`
   width: 100%;
-  padding: 15px 10%;
+  padding: 15px 5%;
   font-family: "EF_jejudoldam";
   font-size: 24px;
 

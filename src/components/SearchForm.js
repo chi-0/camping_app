@@ -6,14 +6,21 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+const FormWrap = styled.div`
+  width: 100%;
+  padding: 0 5%;
+  padding-top: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Form = styled.form`
   max-width: 800px;
   width: 100%;
   display: flex;
   justify-content: center;
   position: relative;
-  margin: 0 auto;
-  margin-top: 120px;
 
   > svg {
     position: absolute;
@@ -62,16 +69,18 @@ export const SearchForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit(submitHandler)}>
-      <label htmlFor="search" />
-      <FontAwesomeIcon icon={faMagnifyingGlass} />
-      <Input
-        {...register("search", {
-          required: true,
-        })}
-        type="text"
-        placeholder="캠핑하고 싶은 지역명을 검색해보세요"
-      />
-    </Form>
+    <FormWrap>
+      <Form onSubmit={handleSubmit(submitHandler)}>
+        <label htmlFor="search" />
+        <FontAwesomeIcon icon={faMagnifyingGlass} />
+        <Input
+          {...register("search", {
+            required: true,
+          })}
+          type="text"
+          placeholder="캠핑하고 싶은 지역명을 검색해보세요"
+        />
+      </Form>
+    </FormWrap>
   );
 };

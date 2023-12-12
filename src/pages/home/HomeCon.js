@@ -6,14 +6,13 @@ import { Link } from "react-router-dom";
 const Con = styled.div`
   max-width: 385px;
   width: 100%;
-  height: 385px;
   border: 2px solid #cacaca;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 30px;
+  padding: 36.6% 30px;
   position: relative;
 
   &:hover {
@@ -32,7 +31,7 @@ const Title = styled.h3`
   font-size: 30px;
   font-weight: 700;
   position: absolute;
-  bottom: 30px;
+  bottom: 10%;
   left: 0;
 `;
 

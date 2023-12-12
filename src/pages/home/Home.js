@@ -10,6 +10,12 @@ const ConWrap = styled.div`
   justify-content: center;
   align-items: center;
   column-gap: 30px;
+
+  > a {
+    max-width: 385px;
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const Home = () => {
