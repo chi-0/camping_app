@@ -18,6 +18,7 @@ const KakaoMap = styled.div`
   width: 600px;
   height: 600px;
   margin-right: 80px;
+  box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.2);
 `;
 
 const Info = styled.div`
