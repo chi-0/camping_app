@@ -81,3 +81,4 @@
 - fontawesome
 - react-redux
 - redux
+- chakra

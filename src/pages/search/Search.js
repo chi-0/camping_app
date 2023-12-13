@@ -5,16 +5,31 @@ import { useCurrentLocation } from "../../lib/useCurrentLocation";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { Container } from "../../components/Container";
+import { SearchCard } from "./SearchCard";
+import { SearchSelect } from "./SearchSelect";
+import { Loading } from "../../components/Loading";
+
+const Wrap = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 const KakaoMap = styled.div`
   width: 600px;
   height: 600px;
+  margin-right: 80px;
+`;
+
+const Info = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Search = () => {
   const { kakao } = window;
   const [isLon, setIsLon] = useState();
   const [isLat, setIsLat] = useState();
+  const [distance, setDistance] = useState(5000);
 
   const searchLocation = useSelector((state) => state.value);
 
@@ -22,10 +37,14 @@ export const Search = () => {
   const imageSrc =
     "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
 
+  const distanceData = (data) => {
+    setDistance(data.distance);
+  };
+
   const queries = useQueries({
     queries: [
       {
-        queryKey: [isLon, isLat],
+        queryKey: [isLon, isLat, distance],
         queryFn: getCamping,
       },
     ],
@@ -88,7 +107,19 @@ export const Search = () => {
 
   return (
     <Container>
-      <KakaoMap id="map" />
+      <Wrap>
+        <KakaoMap id="map" />
+        <Info>
+          <SearchSelect data={distanceData} />
+          {!campingData ? (
+            <Loading />
+          ) : (
+            <>
+              <SearchCard data={campingData} />
+            </>
+          )}
+        </Info>
+      </Wrap>
     </Container>
   );
 };
