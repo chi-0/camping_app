@@ -46,7 +46,9 @@ export const MyCamping = () => {
   const [LikeColor, setLikeColor] = useState("rgba(95, 204, 41, 0.6)");
   const [unLikeColor, setUnLikeColor] = useState("white");
   const [num, setNum] = useState(0);
+  const [count, setCount] = useState(0);
   const likeArr = useSelector((state) => state.arrReducer[0]);
+  const unLikeArr = useSelector((state) => state.arrReducer[1]);
 
   const likeHandler = () => {
     setUnLikeColor("white");
@@ -58,6 +60,12 @@ export const MyCamping = () => {
     setUnLikeColor("rgba(95, 204, 41, 0.6)");
     setLikeColor("white");
     setNum(1);
+  };
+
+  const counting = (countNum) => {
+    setCount((prev) => prev + countNum);
+
+    return count;
   };
 
   return (
@@ -72,9 +80,9 @@ export const MyCamping = () => {
           </Btn>
         </BtnWrap>
         {num === 0 ? (
-          <MyCon data={likeArr} icon={faThumbsUp} />
+          <MyCon data={likeArr} icon={faThumbsUp} count={counting} />
         ) : (
-          <MyCon icon={faThumbsDown} />
+          <MyCon data={unLikeArr} icon={faThumbsDown} count={counting} />
         )}
       </Wrap>
     </Container>

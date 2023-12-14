@@ -13,10 +13,18 @@ const unLikeArr = [];
 const arrReducer = (state = [likeArr, unLikeArr], action) => {
   if (action.type === "LIKE") {
     state[0].push(action);
+
     return state;
   } else if (action.type === "UNLIKE") {
-    const test = state[0].filter((el) => el.title !== action.title);
-    return test;
+    state[1].push(action);
+
+    return state;
+  } else if (action.type === "REMOVE_LIKE") {
+    state[0] = state[0].filter((el) => el.title !== action.title);
+
+    return state;
+  } else if (action.type === "REMOVE_UNLIKE") {
+    state[1] = state[1].filter((el) => el.title !== action.title);
   }
   return state;
 };

@@ -6,7 +6,7 @@ import {
   faThumbsDown as regularThumbsDown,
   faThumbsUp as regularThumbsUp,
 } from "@fortawesome/free-regular-svg-icons";
-import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+// import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 const Wrap = styled.div`

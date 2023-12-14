@@ -8,7 +8,7 @@ import { Container } from "../../components/Container";
 import { SearchCard } from "./SearchCard";
 import { SearchSelect } from "./SearchSelect";
 import { Loading } from "../../components/Loading";
-import { SearchTest } from "./SearchTest";
+// import { SearchTest } from "./SearchTest";
 
 const Wrap = styled.div`
   display: flex;
@@ -53,7 +53,8 @@ export const Search = () => {
   });
 
   const campingData = queries[0]?.data?.response?.body?.items?.item;
-  console.log(campingData);
+  const test = queries[0];
+  console.log(test);
 
   useEffect(() => {
     const container = document.getElementById("map");
