@@ -29,6 +29,8 @@ const Btn = styled.button`
   cursor: pointer;
   background-color: white;
   border: 1px solid #acacac;
+  font-size: 18px;
+  font-weight: 500;
 
   &:nth-child(1) {
     background-color: ${(props) => props.$BgColor};

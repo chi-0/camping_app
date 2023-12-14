@@ -8,6 +8,7 @@ import { Container } from "../../components/Container";
 import { SearchCard } from "./SearchCard";
 import { SearchSelect } from "./SearchSelect";
 import { Loading } from "../../components/Loading";
+import { SearchTest } from "./SearchTest";
 
 const Wrap = styled.div`
   display: flex;
@@ -32,7 +33,7 @@ export const Search = () => {
   const [isLat, setIsLat] = useState();
   const [distance, setDistance] = useState(5000);
 
-  const searchLocation = useSelector((state) => state.value);
+  const searchLocation = useSelector((state) => state.location.value);
 
   const { address } = useCurrentLocation();
   const imageSrc =
@@ -117,6 +118,7 @@ export const Search = () => {
           ) : (
             <>
               <SearchCard data={campingData} />
+              {/* <SearchTest data={campingData} /> */}
             </>
           )}
         </Info>
