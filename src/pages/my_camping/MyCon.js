@@ -58,20 +58,22 @@ const Btn = styled.button`
   cursor: pointer;
 `;
 
-export const MyCon = ({ icon }) => {
+export const MyCon = ({ data, icon }) => {
   return (
     <Wrap>
-      <Card>
-        <Img />
-        <TextWrap>
-          <Title>이름입니다.</Title>
-          <Intro>소개입니다.</Intro>
-          <Address>주소입니다.</Address>
-        </TextWrap>
-        <Btn>
-          <FontAwesomeIcon icon={icon} />
-        </Btn>
-      </Card>
+      {data?.map((data) => (
+        <Card key={data.id}>
+          <Img src={data.url} />
+          <TextWrap>
+            <Title>{data.title}</Title>
+            <Intro>{data.intro}</Intro>
+            <Address>{data.address}</Address>
+          </TextWrap>
+          <Btn>
+            <FontAwesomeIcon icon={icon} />
+          </Btn>
+        </Card>
+      ))}
     </Wrap>
   );
 };

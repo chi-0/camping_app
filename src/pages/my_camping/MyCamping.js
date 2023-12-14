@@ -3,6 +3,7 @@ import { Container } from "../../components/Container";
 import { MyCon } from "./MyCon";
 import { useState } from "react";
 import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
 const Wrap = styled.div`
   width: 100%;
@@ -45,6 +46,7 @@ export const MyCamping = () => {
   const [LikeColor, setLikeColor] = useState("rgba(95, 204, 41, 0.6)");
   const [unLikeColor, setUnLikeColor] = useState("white");
   const [num, setNum] = useState(0);
+  const likeArr = useSelector((state) => state.arrReducer[0]);
 
   const likeHandler = () => {
     setUnLikeColor("white");
@@ -70,7 +72,7 @@ export const MyCamping = () => {
           </Btn>
         </BtnWrap>
         {num === 0 ? (
-          <MyCon icon={faThumbsUp} />
+          <MyCon data={likeArr} icon={faThumbsUp} />
         ) : (
           <MyCon icon={faThumbsDown} />
         )}

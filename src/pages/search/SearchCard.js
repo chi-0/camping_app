@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 import { useEffect, useRef, useState } from "react";
 import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
 
 const Wrap = styled.div`
   display: flex;
@@ -97,6 +98,10 @@ export const SearchCard = ({ data }) => {
   const btnRef = useRef();
   const { current } = btnRef;
 
+  const likeDispatch = useDispatch();
+  const likeArr = useSelector((state) => state.arrReducer[1]);
+  console.log(likeArr);
+
   useEffect(() => {
     setIsBtn(current);
   }, [current, Count]);
@@ -107,12 +112,35 @@ export const SearchCard = ({ data }) => {
     const childTarget = e.currentTarget.parentNode.childNodes[1];
     const targetValid = target.classList.contains("btnColor");
     setCount((prev) => prev + 1);
+    const imgSrc = e.currentTarget.parentNode.parentNode.childNodes[0].src;
+    const title =
+      e.currentTarget.parentNode.parentNode.childNodes[1].childNodes[0]
+        .innerText;
+    const intro =
+      e.currentTarget.parentNode.parentNode.childNodes[1].childNodes[1]
+        .innerText;
+    const address =
+      e.currentTarget.parentNode.parentNode.childNodes[1].childNodes[2]
+        .innerText;
 
     if (!targetValid) {
       target.classList.add("btnColor");
       childTarget.classList.remove("btnColor");
+      likeDispatch({
+        type: "LIKE",
+        id: Math.random(),
+        url: imgSrc,
+        title: title,
+        intro: intro,
+        address: address,
+      });
     } else if (targetValid) {
       target.classList.remove("btnColor");
+      likeDispatch({
+        type: "UNLIKE",
+        id: Math.random(),
+        title: title,
+      });
     }
   };
 
