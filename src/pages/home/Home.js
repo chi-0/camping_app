@@ -3,6 +3,9 @@ import { Container } from "../../components/Container";
 
 import { faCampground, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { HomeCon } from "./HomeCon";
+import { useCurrentLocation } from "../../lib/useCurrentLocation";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 const ConWrap = styled.div`
   width: 100%;
@@ -19,6 +22,16 @@ const ConWrap = styled.div`
 `;
 
 export const Home = () => {
+  const dispatch = useDispatch();
+  const { address } = useCurrentLocation();
+
+  useEffect(() => {
+    dispatch({
+      type: "SEARCH_INPUT",
+      value: address,
+    });
+  }, [address, dispatch]);
+
   return (
     <Container>
       <ConWrap>

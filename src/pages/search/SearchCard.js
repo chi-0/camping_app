@@ -11,7 +11,7 @@ import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 
 const Wrap = styled.div`
-  display: flex;
+  display: ${(props) => props.$display};
   flex-direction: column;
   row-gap: 20px;
   width: 100%;
@@ -93,7 +93,7 @@ const Btn = styled.button`
 `;
 
 export const SearchCard = ({ data }) => {
-  const [Count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
   const [isBtn, setIsBtn] = useState(0);
   const btnRef = useRef();
   const { current } = btnRef;
@@ -102,7 +102,7 @@ export const SearchCard = ({ data }) => {
 
   useEffect(() => {
     setIsBtn(current);
-  }, [current, Count]);
+  }, [current, count]);
 
   const likeHandler = (e) => {
     e.preventDefault();
@@ -198,72 +198,76 @@ export const SearchCard = ({ data }) => {
 
   return (
     <>
-      <Wrap ref={btnRef}>
-        {data.map((data, index) => (
-          <Link
-            key={data.contentId}
-            to={
-              data.homepage === ""
-                ? `https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=${data.facltNm}`
-                : data.homepage
-            }
-            target="_blank"
-          >
-            <Card>
-              <Img src={data.firstImageUrl} />
-              <TextWrap>
-                <Title>{data.facltNm}</Title>
-                <Intro>{data.lineIntro}</Intro>
-                <Address>✔️ {data.addr1}</Address>
-                {data.homepage === "" && (
-                  <>
-                    <NotPage>🚫 제공받은 홈페이지가 없습니다</NotPage>
-                  </>
-                )}
-              </TextWrap>
-              <BtnWrap>
-                <Btn onClick={likeHandler}>
-                  {isBtn && (
-                    <>
-                      {isBtn?.childNodes[
-                        index
-                      ]?.childNodes[0].childNodes[2].childNodes[0].classList.contains(
-                        "btnColor"
-                      ) ? (
+      <Wrap ref={btnRef} $display={data === "" ? "none" : "flex"}>
+        {data && (
+          <>
+            {data?.map((data, index) => (
+              <Link
+                key={data.contentId}
+                to={
+                  data.homepage === ""
+                    ? `https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=${data.facltNm}`
+                    : data.homepage
+                }
+                target="_blank"
+              >
+                <Card>
+                  <Img src={data.firstImageUrl} />
+                  <TextWrap>
+                    <Title>{data.facltNm}</Title>
+                    <Intro>{data.lineIntro}</Intro>
+                    <Address>✔️ {data.addr1}</Address>
+                    {data.homepage === "" && (
+                      <>
+                        <NotPage>🚫 제공받은 홈페이지가 없습니다</NotPage>
+                      </>
+                    )}
+                  </TextWrap>
+                  <BtnWrap>
+                    <Btn onClick={likeHandler}>
+                      {isBtn && (
                         <>
-                          <FontAwesomeIcon icon={faThumbsUp} />
-                        </>
-                      ) : (
-                        <>
-                          <FontAwesomeIcon icon={regularThumbsUp} />
-                        </>
-                      )}
-                    </>
-                  )}
-                </Btn>
-                <Btn onClick={unlikeHandler}>
-                  {isBtn && (
-                    <>
-                      {isBtn?.childNodes[
-                        index
-                      ]?.childNodes[0].childNodes[2].childNodes[1].classList.contains(
-                        "btnColor"
-                      ) ? (
-                        <>
-                          <FontAwesomeIcon icon={faThumbsDown} />
-                        </>
-                      ) : (
-                        <>
-                          <FontAwesomeIcon icon={regularThumbsDown} />
+                          {isBtn?.childNodes[
+                            index
+                          ]?.childNodes[0].childNodes[2].childNodes[0].classList.contains(
+                            "btnColor"
+                          ) ? (
+                            <>
+                              <FontAwesomeIcon icon={faThumbsUp} />
+                            </>
+                          ) : (
+                            <>
+                              <FontAwesomeIcon icon={regularThumbsUp} />
+                            </>
+                          )}
                         </>
                       )}
-                    </>
-                  )}
-                </Btn>
-              </BtnWrap>
-            </Card>
-          </Link>
-        ))}
+                    </Btn>
+                    <Btn onClick={unlikeHandler}>
+                      {isBtn && (
+                        <>
+                          {isBtn?.childNodes[
+                            index
+                          ]?.childNodes[0].childNodes[2].childNodes[1].classList.contains(
+                            "btnColor"
+                          ) ? (
+                            <>
+                              <FontAwesomeIcon icon={faThumbsDown} />
+                            </>
+                          ) : (
+                            <>
+                              <FontAwesomeIcon icon={regularThumbsDown} />
+                            </>
+                          )}
+                        </>
+                      )}
+                    </Btn>
+                  </BtnWrap>
+                </Card>
+              </Link>
+            ))}
+          </>
+        )}
       </Wrap>
     </>
   );

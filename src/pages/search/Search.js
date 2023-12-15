@@ -32,6 +32,7 @@ export const Search = () => {
   const [isLon, setIsLon] = useState();
   const [isLat, setIsLat] = useState();
   const [distance, setDistance] = useState(5000);
+  const [notSearch, setNotSearch] = useState();
 
   const searchLocation = useSelector((state) => state.location.value);
 
@@ -53,8 +54,7 @@ export const Search = () => {
   });
 
   const campingData = queries[0]?.data?.response?.body?.items?.item;
-  const test = queries[0];
-  console.log(test);
+  const campingLoading = queries[0].isLoading;
 
   useEffect(() => {
     const container = document.getElementById("map");
@@ -67,6 +67,7 @@ export const Search = () => {
 
     const geocoder = new kakao.maps.services.Geocoder();
     const callback = function (result, status) {
+      setNotSearch(result.length);
       if (status === kakao.maps.services.Status.OK) {
         const { x: lon, y: lat } = result[0];
         setIsLon(lon);
@@ -75,7 +76,6 @@ export const Search = () => {
         const marker = new kakao.maps.Marker({
           position: coords,
         });
-
         marker.setMap(map);
       }
     };
@@ -93,20 +93,7 @@ export const Search = () => {
         image: markerImage,
       });
     });
-  }, [
-    isLat,
-    isLon,
-    kakao.maps.LatLng,
-    kakao.maps.Map,
-    kakao.maps.services.Geocoder,
-    kakao.maps.services.Status.OK,
-    searchLocation,
-    address,
-    kakao.maps.Marker,
-    kakao.maps.MarkerImage,
-    kakao.maps.Size,
-    campingData,
-  ]);
+  }, [isLat, isLon, kakao.maps, searchLocation, address, campingData]);
 
   return (
     <Container>
@@ -114,12 +101,35 @@ export const Search = () => {
         <KakaoMap id="map" />
         <Info>
           <SearchSelect data={distanceData} />
-          {!campingData ? (
-            <Loading />
+
+          {campingLoading ? (
+            <>
+              <Loading alert="로딩중..." />
+            </>
           ) : (
             <>
-              <SearchCard data={campingData} />
-              {/* <SearchTest data={campingData} /> */}
+              {campingData ? (
+                <>
+                  <Loading
+                    alert={
+                      notSearch === 0 &&
+                      "검색 결과가 없습니다. 지역명을 입력해주세요."
+                    }
+                  />
+                  <SearchCard data={notSearch === 0 ? "" : campingData} />
+                  {/* <SearchTest data={campingData} /> */}
+                </>
+              ) : (
+                <>
+                  <Loading
+                    alert={
+                      notSearch === 1
+                        ? "주변 캠핑장이 없습니다."
+                        : "검색 결과가 없습니다. 지역명을 입력해주세요."
+                    }
+                  />
+                </>
+              )}
             </>
           )}
         </Info>

@@ -55,6 +55,7 @@ export const SearchForm = () => {
     register,
     handleSubmit,
     // formState: { errors, isValid },
+    reset,
   } = useForm();
 
   const submitHandler = (data) => {
@@ -64,6 +65,8 @@ export const SearchForm = () => {
       type: "SEARCH_INPUT",
       value: search,
     });
+
+    reset({ search: "" });
 
     nav("/search");
   };
