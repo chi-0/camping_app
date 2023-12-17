@@ -10,12 +10,19 @@ const Wrap = styled.div`
   display: flex;
   justify-content: center;
   column-gap: 40px;
+  flex-wrap: wrap;
+  row-gap: 10px;
 `;
 
 const BtnWrap = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 20px;
+  row-gap: 10px;
+
+  @media screen and (max-width: 890px) {
+    flex-direction: row;
+    column-gap: 10px;
+  }
 `;
 
 const Btn = styled.button`
@@ -39,6 +46,11 @@ const Btn = styled.button`
 
   &:nth-child(2) {
     background-color: ${(props) => props.$BgColor};
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 160px;
+    height: 40px;
   }
 `;
 

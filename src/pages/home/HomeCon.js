@@ -23,6 +23,12 @@ const Con = styled.div`
     font-size: 100px;
     color: ${mainColor};
   }
+
+  @media screen and (max-width: 800px) {
+    > svg {
+      font-size: 60px;
+    }
+  }
 `;
 
 const Title = styled.h3`
@@ -33,6 +39,10 @@ const Title = styled.h3`
   position: absolute;
   bottom: 10%;
   left: 0;
+
+  @media screen and (max-width: 800px) {
+    font-size: 16px;
+  }
 `;
 
 export const HomeCon = ({ link, title, icon }) => {

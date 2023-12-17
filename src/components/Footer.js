@@ -12,6 +12,14 @@ const FooterWrap = styled.footer`
   p {
     opacity: 0.4;
   }
+
+  @media screen and (max-width: 800px) {
+    padding: 40px 5%;
+
+    > p {
+      font-size: 13px;
+    }
+  }
 `;
 
 export const Footer = () => {

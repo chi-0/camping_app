@@ -13,6 +13,10 @@ const FormWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 800px) {
+    padding-top: 60px;
+  }
 `;
 
 const Form = styled.form`
@@ -30,11 +34,17 @@ const Form = styled.form`
     font-size: 30px;
     color: ${mainColor};
   }
+
+  @media screen and (max-width: 800px) {
+    > svg {
+      font-size: 23px;
+    }
+  }
 `;
 
 const Input = styled.input`
   all: unset;
-  padding: 10px 50px;
+  padding: 10px 40px;
   box-sizing: border-box;
   border: 2px solid ${mainColor};
   border-radius: 5px;
@@ -44,6 +54,10 @@ const Input = styled.input`
 
   &::placeholder {
     color: #cacaca;
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 14px;
   }
 `;
 

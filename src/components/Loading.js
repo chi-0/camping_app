@@ -4,6 +4,12 @@ const Wrap = styled.div`
   display: ${(props) => props.$display};
   width: 600px;
   height: 600px;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    padding: 10px;
+    align-items: flex-start;
+  }
 `;
 
 export const Loading = ({ alert }) => {

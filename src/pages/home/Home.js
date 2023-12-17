@@ -19,6 +19,10 @@ const ConWrap = styled.div`
     width: 100%;
     height: auto;
   }
+
+  @media screen and (max-width: 800px) {
+    column-gap: 20px;
+  }
 `;
 
 export const Home = () => {

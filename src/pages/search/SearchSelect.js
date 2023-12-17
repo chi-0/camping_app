@@ -18,9 +18,17 @@ const Select = styled.select`
   height: 42px;
   background-color: #cacaca;
   border-radius: 10px;
-  line-height: 42px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
   cursor: pointer;
+
+  @media screen and (max-width: 800px) {
+    width: 100px;
+    height: 39px;
+    font-size: 16px;
+  }
 `;
 
 export const SearchSelect = ({ data: distance }) => {

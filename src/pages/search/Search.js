@@ -13,18 +13,29 @@ import { Loading } from "../../components/Loading";
 const Wrap = styled.div`
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 80px;
 `;
 
 const KakaoMap = styled.div`
   width: 600px;
   height: 600px;
-  margin-right: 80px;
   box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+
+  @media screen and (max-width: 800px) {
+    width: 320px;
+    height: 320px;
+  }
 `;
 
 const Info = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 export const Search = () => {

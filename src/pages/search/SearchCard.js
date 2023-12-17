@@ -18,6 +18,12 @@ const Wrap = styled.div`
   height: 570px;
   padding: 5px;
   overflow-y: scroll;
+
+  @media screen and (max-width: 800px) {
+    row-gap: 10px;
+    height: auto;
+    overflow: visible;
+  }
 `;
 
 const Card = styled.div`
@@ -33,12 +39,25 @@ const Card = styled.div`
   &:hover {
     border: 2px solid ${mainColor};
   }
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    padding: 10px;
+    align-items: flex-start;
+  }
 `;
 
 const Img = styled.img`
   width: 148px;
   height: 148px;
   margin-right: 35px;
+  border-radius: 10px;
+
+  @media screen and (max-width: 800px) {
+    margin-right: 15px;
+    width: 98px;
+    height: 130px;
+  }
 `;
 
 const TextWrap = styled.div`
@@ -49,6 +68,11 @@ const Title = styled.h3`
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 5px;
+
+  @media screen and (max-width: 800px) {
+    font-size: 15px;
+    margin-top: 5px;
+  }
 `;
 
 const Intro = styled.p`
@@ -56,18 +80,31 @@ const Intro = styled.p`
   font-weight: 600;
   opacity: 0.3;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 800px) {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
 `;
 
 const Address = styled.p`
   font-size: 18px;
   font-weight: 500;
+
+  @media screen and (max-width: 800px) {
+    font-size: 15px;
+  }
 `;
 
 const NotPage = styled.p`
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 15px;
   font-weight: 500;
   color: #cacaca;
+
+  @media screen and (max-width: 800px) {
+    font-size: 15px;
+  }
 `;
 
 const BtnWrap = styled.div`
@@ -76,6 +113,12 @@ const BtnWrap = styled.div`
   right: 20px;
   display: flex;
   column-gap: 15px;
+
+  @media screen and (max-width: 800px) {
+    bottom: -90px;
+    right: 10px;
+    column-gap: 10px;
+  }
 `;
 
 const Btn = styled.button`
@@ -89,6 +132,10 @@ const Btn = styled.button`
 
   &.btnColor {
     color: ${mainColor};
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 20px;
   }
 `;
 
@@ -212,7 +259,14 @@ export const SearchCard = ({ data }) => {
                 target="_blank"
               >
                 <Card>
-                  <Img src={data.firstImageUrl} />
+                  <Img
+                    src={
+                      data.firstImageUrl
+                        ? data.firstImageUrl
+                        : "https://t4.ftcdn.net/jpg/04/00/24/31/360_F_400243185_BOxON3h9avMUX10RsDkt3pJ8iQx72kS3.jpg"
+                    }
+                    alt={data.facltNm}
+                  />
                   <TextWrap>
                     <Title>{data.facltNm}</Title>
                     <Intro>{data.lineIntro}</Intro>

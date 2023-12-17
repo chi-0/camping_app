@@ -8,6 +8,11 @@ const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 20px;
+
+  @media screen and (max-width: 800px) {
+    row-gap: 10px;
+    width: 100%;
+  }
 `;
 
 const Card = styled.div`
@@ -19,12 +24,29 @@ const Card = styled.div`
   border-radius: 10px;
   height: fit-content;
   position: relative;
+
+  &:hover {
+    border: 2px solid ${mainColor};
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    padding: 10px;
+    align-items: flex-start;
+  }
 `;
 
 const Img = styled.img`
   width: 148px;
   height: 148px;
   margin-right: 35px;
+  border-radius: 10px;
+
+  @media screen and (max-width: 800px) {
+    margin-right: 15px;
+    width: 98px;
+    height: 130px;
+  }
 `;
 
 const TextWrap = styled.div`
@@ -35,6 +57,11 @@ const Title = styled.h3`
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 5px;
+
+  @media screen and (max-width: 800px) {
+    font-size: 15px;
+    margin-top: 5px;
+  }
 `;
 
 const Intro = styled.p`
@@ -42,11 +69,20 @@ const Intro = styled.p`
   font-weight: 600;
   opacity: 0.3;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 800px) {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
 `;
 
 const Address = styled.p`
   font-size: 18px;
   font-weight: 500;
+
+  @media screen and (max-width: 800px) {
+    font-size: 15px;
+  }
 `;
 
 const NotPage = styled.p`
@@ -54,6 +90,10 @@ const NotPage = styled.p`
   font-size: 15px;
   font-weight: 500;
   color: #cacaca;
+
+  @media screen and (max-width: 800px) {
+    font-size: 15px;
+  }
 `;
 
 const Btn = styled.button`
@@ -64,6 +104,13 @@ const Btn = styled.button`
   top: 20px;
   right: 20px;
   cursor: pointer;
+
+  @media screen and (max-width: 800px) {
+    font-size: 20px;
+    bottom: -90px;
+    right: 10px;
+    column-gap: 10px;
+  }
 `;
 
 export const MyCon = ({ data, icon, count }) => {
@@ -104,7 +151,7 @@ export const MyCon = ({ data, icon, count }) => {
           {data?.map((data) => (
             <Link key={data.id} to={data.homeUrl} target="_blank">
               <Card>
-                <Img src={data.url} />
+                <Img src={data.url} alt={data.title} />
                 <TextWrap>
                   <Title>{data.title}</Title>
                   <Intro>{data.intro}</Intro>
