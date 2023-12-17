@@ -87,3 +87,4 @@
 - fontawesome
 - react-redux
 - redux
+- gh-pages
