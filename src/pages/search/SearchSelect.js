@@ -16,7 +16,7 @@ const Select = styled.select`
   font-size: 18px;
   width: 120px;
   height: 42px;
-  background-color: #cacaca;
+  background-color: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   display: flex;
   justify-content: center;

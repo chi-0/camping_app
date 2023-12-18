@@ -44,13 +44,17 @@ const Form = styled.form`
 
 const Input = styled.input`
   all: unset;
-  padding: 10px 40px;
+  padding: 10px 50px;
   box-sizing: border-box;
-  border: 2px solid ${mainColor};
+  border: 2px solid #cacaca;
   border-radius: 5px;
   font-size: 20px;
   font-weight: 500;
   width: 100%;
+
+  &:focus {
+    border: 2px solid ${mainColor};
+  }
 
   &::placeholder {
     color: #cacaca;

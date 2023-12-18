@@ -32,13 +32,7 @@ export const useCurrentLocation = () => {
     };
 
     geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
-  }, [
-    lon,
-    lat,
-    kakao.maps.LatLng,
-    kakao.maps.services.Geocoder,
-    kakao.maps.services.Status.OK,
-  ]);
+  }, [lon, lat, kakao.maps]);
 
   return { address };
 };

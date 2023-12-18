@@ -31,14 +31,11 @@ const Card = styled.div`
   padding: 20px;
   display: flex;
   align-items: center;
-  border: 1px solid ${mainColor};
   border-radius: 10px;
   height: fit-content;
   position: relative;
-
-  &:hover {
-    border: 2px solid ${mainColor};
-  }
+  /* background-color: rgba(0, 0, 0, 0.1); */
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 
   @media screen and (max-width: 800px) {
     width: 100%;
