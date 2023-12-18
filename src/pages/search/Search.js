@@ -8,7 +8,6 @@ import { Container } from "../../components/Container";
 import { SearchCard } from "./SearchCard";
 import { SearchSelect } from "./SearchSelect";
 import { Loading } from "../../components/Loading";
-// import { SearchTest } from "./SearchTest";
 
 const Wrap = styled.div`
   display: flex;
@@ -128,7 +127,6 @@ export const Search = () => {
                     }
                   />
                   <SearchCard data={notSearch === 0 ? "" : campingData} />
-                  {/* <SearchTest data={campingData} /> */}
                 </>
               ) : (
                 <>

@@ -27,4 +27,8 @@ export const GlobalStyled = createGlobalStyle`
   text-decoration: none;
   color: #111;
  }
+
+ input, select, textarea, button, a, label {
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  }
 `;
