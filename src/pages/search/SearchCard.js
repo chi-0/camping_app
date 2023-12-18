@@ -34,7 +34,6 @@ const Card = styled.div`
   border-radius: 10px;
   height: fit-content;
   position: relative;
-  /* background-color: rgba(0, 0, 0, 0.1); */
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 
   @media screen and (max-width: 800px) {
@@ -110,9 +109,11 @@ const BtnWrap = styled.div`
   right: 20px;
   display: flex;
   column-gap: 15px;
+  width: fit-content;
+  height: fit-content;
 
   @media screen and (max-width: 800px) {
-    bottom: -90px;
+    top: 120px;
     right: 10px;
     column-gap: 10px;
   }
@@ -122,6 +123,8 @@ const Btn = styled.button`
   all: unset;
   font-size: 25px;
   color: #cacaca;
+  width: fit-content;
+  height: fit-content;
 
   &:hover {
     color: ${mainColor};

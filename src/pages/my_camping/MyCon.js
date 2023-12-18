@@ -99,13 +99,14 @@ const Btn = styled.button`
   position: absolute;
   top: 20px;
   right: 20px;
+  width: fit-content;
+  height: fit-content;
   cursor: pointer;
 
   @media screen and (max-width: 800px) {
     font-size: 20px;
-    bottom: -90px;
+    top: 120px;
     right: 10px;
-    column-gap: 10px;
   }
 `;
 
