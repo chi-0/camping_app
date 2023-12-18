@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/camping_app/static/js/main.6a6c92f9.js",
+    "main.js": "/camping_app/static/js/main.c4c49a60.js",
     "static/media/camping.png": "/camping_app/static/media/camping.b473aa647e8252c5d047.png",
     "index.html": "/camping_app/index.html",
-    "main.6a6c92f9.js.map": "/camping_app/static/js/main.6a6c92f9.js.map"
+    "main.c4c49a60.js.map": "/camping_app/static/js/main.c4c49a60.js.map"
   },
   "entrypoints": [
-    "static/js/main.6a6c92f9.js"
+    "static/js/main.c4c49a60.js"
   ]
 }
