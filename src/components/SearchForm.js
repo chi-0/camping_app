@@ -8,8 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 const FormWrap = styled.div`
   width: 100%;
-  padding: 0 5%;
-  padding-top: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,15 +44,11 @@ const Input = styled.input`
   all: unset;
   padding: 10px 50px;
   box-sizing: border-box;
-  border: 2px solid #cacaca;
   border-radius: 5px;
   font-size: 20px;
   font-weight: 500;
   width: 100%;
-
-  &:focus {
-    border: 2px solid ${mainColor};
-  }
+  background-color: rgba(255, 255, 255, 0.3);
 
   &::placeholder {
     color: #cacaca;

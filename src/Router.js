@@ -6,7 +6,6 @@ import { PageNotFound } from "./pages/pageNotFound/PageNotFound";
 import { GlobalStyled } from "./style/GlobalStyled";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { SearchForm } from "./components/SearchForm";
 
 export const Router = () => {
   return (
@@ -14,7 +13,6 @@ export const Router = () => {
       <GlobalStyled />
 
       <Header />
-      <SearchForm />
 
       <Routes>
         <Route path="/" element={<Home />} />

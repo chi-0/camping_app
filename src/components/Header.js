@@ -6,8 +6,8 @@ const HearderWrap = styled.header`
   width: 100%;
   padding: 20px 5%;
   display: flex;
-  column-gap: 60px;
   align-items: center;
+  justify-content: space-between;
 
   > a {
     color: ${mainColor};
@@ -39,13 +39,6 @@ const Nav = styled.div`
 
   > a {
     font-size: 18px;
-    font-weight: 500;
-  }
-
-  > a:hover {
-    ~ div {
-      width: 100%;
-    }
   }
 
   @media screen and (max-width: 800px) {
@@ -55,17 +48,6 @@ const Nav = styled.div`
   }
 `;
 
-const Line = styled.div`
-  width: 0%;
-  height: 2px;
-  background-color: ${mainColor};
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  transition: 0.3s;
-  border-radius: 50%;
-`;
-
 export const Header = () => {
   return (
     <HearderWrap>
@@ -73,11 +55,9 @@ export const Header = () => {
       <NavWrap>
         <Nav>
           <Link to={"/search"}>캠핑장 찾기</Link>
-          <Line />
         </Nav>
         <Nav>
           <Link to={"my_camping"}>나의 캠핑장</Link>
-          <Line />
         </Nav>
       </NavWrap>
     </HearderWrap>
