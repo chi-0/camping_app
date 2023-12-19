@@ -35,15 +35,13 @@ const NavWrap = styled.div`
 `;
 
 const Nav = styled.div`
-  position: relative;
-
   > a {
-    font-size: 18px;
+    font-weight: 500;
   }
 
   @media screen and (max-width: 800px) {
     > a {
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 `;
@@ -53,9 +51,6 @@ export const Header = () => {
     <HearderWrap>
       <Link to={"/"}>캠핑갈까?</Link>
       <NavWrap>
-        <Nav>
-          <Link to={"/search"}>캠핑장 찾기</Link>
-        </Nav>
         <Nav>
           <Link to={"my_camping"}>나의 캠핑장</Link>
         </Nav>

@@ -1,20 +1,17 @@
 import styled from "styled-components";
-import { mainColor } from "../style/GlobalStyled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { mainColor } from "../../style/GlobalStyled";
 
-const FormWrap = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const FormWrap = styled.div``;
 
-  @media screen and (max-width: 800px) {
-    padding-top: 60px;
-  }
+const Title = styled.h3`
+  font-size: 28px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 15px;
 `;
 
 const Form = styled.form`
@@ -42,13 +39,13 @@ const Form = styled.form`
 
 const Input = styled.input`
   all: unset;
-  padding: 10px 50px;
+  padding: 15px 50px;
   box-sizing: border-box;
   border-radius: 5px;
   font-size: 20px;
   font-weight: 500;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.3);
+  width: 80vw;
+  background-color: rgba(255, 255, 255);
 
   &::placeholder {
     color: #cacaca;
@@ -59,9 +56,8 @@ const Input = styled.input`
   }
 `;
 
-export const SearchForm = () => {
+export const HomeForm = () => {
   const dispatch = useDispatch();
-  const nav = useNavigate();
 
   const {
     register,
@@ -78,22 +74,25 @@ export const SearchForm = () => {
       value: search,
     });
 
-    reset({ search: "" });
+    dispatch({
+      type: "OPEN",
+    });
 
-    nav("/search");
+    reset({ search: "" });
   };
 
   return (
     <FormWrap>
+      <Title>근데 어디로 가지?</Title>
       <Form onSubmit={handleSubmit(submitHandler)}>
-        <label htmlFor="search" />
+        <label htmlFor="검색창" />
         <FontAwesomeIcon icon={faMagnifyingGlass} />
         <Input
           {...register("search", {
             required: true,
           })}
           type="text"
-          placeholder="캠핑하고 싶은 지역명을 검색해보세요"
+          placeholder="지역을 검색해보세요"
         />
       </Form>
     </FormWrap>

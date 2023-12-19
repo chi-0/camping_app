@@ -1,5 +1,16 @@
 import { combineReducers } from "redux";
 
+const modalReducer = (state = false, action) => {
+  if (action.type === "OPEN") {
+    state = true;
+    return state;
+  } else if (action.type === "CLOSE") {
+    state = false;
+    return state;
+  }
+  return state;
+};
+
 const location = (state = { value: null }, action) => {
   if (action.type === "SEARCH_INPUT") {
     return { ...state, value: action.value };
@@ -7,10 +18,7 @@ const location = (state = { value: null }, action) => {
   return state;
 };
 
-const likeArr = [];
-const unLikeArr = [];
-
-const arrReducer = (state = [likeArr, unLikeArr], action) => {
+const arrReducer = (state = [[], []], action) => {
   if (action.type === "LIKE") {
     state[0].push(action);
 
@@ -29,7 +37,31 @@ const arrReducer = (state = [likeArr, unLikeArr], action) => {
   return state;
 };
 
+const coordReducer = (state = { isLat: null, isLon: null }, action) => {
+  if (action.type === "CHECK") {
+    const coord = {
+      ...state,
+      isLat: action.isLat,
+      isLon: action.isLon,
+    };
+
+    return coord;
+  } else {
+    return state;
+  }
+};
+
+const searchValidReducer = (state = { value: null }, action) => {
+  if (action.type === "SEARCH_VALID") {
+    return { ...state, value: action.value };
+  }
+  return state;
+};
+
 export const reducer = combineReducers({
+  modalReducer,
   location,
   arrReducer,
+  coordReducer,
+  searchValidReducer,
 });
