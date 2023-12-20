@@ -60,32 +60,9 @@ const Title = styled.h3`
   }
 `;
 
-const Intro = styled.p`
-  font-size: 15px;
-  font-weight: 600;
-  opacity: 0.3;
-  margin-bottom: 20px;
-
-  @media screen and (max-width: 800px) {
-    font-size: 13px;
-    margin-bottom: 15px;
-  }
-`;
-
 const Address = styled.p`
   font-size: 18px;
   font-weight: 500;
-
-  @media screen and (max-width: 800px) {
-    font-size: 15px;
-  }
-`;
-
-const NotPage = styled.p`
-  margin-top: 20px;
-  font-size: 15px;
-  font-weight: 500;
-  color: #cacaca;
 
   @media screen and (max-width: 800px) {
     font-size: 15px;
@@ -151,13 +128,7 @@ export const MyCon = ({ data, icon, count }) => {
                 <Img src={data.url} alt={data.title} />
                 <TextWrap>
                   <Title>{data.title}</Title>
-                  <Intro>{data.intro}</Intro>
                   <Address>{data.address}</Address>
-                  {data.homeUrl.slice(0, 24) === `https://search.naver.com` && (
-                    <>
-                      <NotPage>🚫 제공받은 홈페이지가 없습니다</NotPage>
-                    </>
-                  )}
                 </TextWrap>
                 <Btn onClick={clickHandler}>
                   <FontAwesomeIcon icon={icon} />

@@ -4,73 +4,57 @@ import { MyCon } from "./MyCon";
 import { useState } from "react";
 import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
+import { HomeBg } from "../home/HomeBg";
 
 const Wrap = styled.div`
+  max-width: 1200px;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  column-gap: 40px;
-  flex-wrap: wrap;
-  row-gap: 10px;
+  margin: 0 auto;
+  padding-top: 90px;
 `;
 
 const BtnWrap = styled.div`
+  width: 100%;
+  border-bottom: 2px solid #dcdcdc;
+  padding: 5px;
   display: flex;
-  flex-direction: column;
-  row-gap: 10px;
-
-  @media screen and (max-width: 890px) {
-    flex-direction: row;
-    column-gap: 10px;
-  }
+  column-gap: 20px;
 `;
 
 const Btn = styled.button`
   all: unset;
   box-sizing: border-box;
-  width: 160px;
-  height: 42px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
   cursor: pointer;
-  background-color: white;
-  border: 1px solid #acacac;
   font-size: 18px;
   font-weight: 500;
+  color: #cacaca;
+  padding: 5px;
 
   &:nth-child(1) {
-    background-color: ${(props) => props.$BgColor};
+    color: ${(props) => props.$color};
   }
-
   &:nth-child(2) {
-    background-color: ${(props) => props.$BgColor};
-  }
-
-  @media screen and (max-width: 800px) {
-    width: 160px;
-    height: 40px;
+    color: ${(props) => props.$color};
   }
 `;
 
 export const MyCamping = () => {
-  const [LikeColor, setLikeColor] = useState("rgba(95, 204, 41, 0.6)");
-  const [unLikeColor, setUnLikeColor] = useState("white");
+  const [LikeColor, setLikeColor] = useState("#111");
+  const [unLikeColor, setUnLikeColor] = useState("#cacaca");
   const [num, setNum] = useState(0);
   const [count, setCount] = useState(0);
   const likeArr = useSelector((state) => state.arrReducer[0]);
   const unLikeArr = useSelector((state) => state.arrReducer[1]);
 
   const likeHandler = () => {
-    setUnLikeColor("white");
-    setLikeColor("rgba(95, 204, 41, 0.6)");
+    setUnLikeColor("#cacaca");
+    setLikeColor("#111");
     setNum(0);
   };
 
   const unLikeHandler = () => {
-    setUnLikeColor("rgba(95, 204, 41, 0.6)");
-    setLikeColor("white");
+    setUnLikeColor("#111");
+    setLikeColor("#cacaca");
     setNum(1);
   };
 
@@ -82,12 +66,13 @@ export const MyCamping = () => {
 
   return (
     <Container>
+      <HomeBg />
       <Wrap>
         <BtnWrap>
-          <Btn onClick={likeHandler} $BgColor={LikeColor}>
+          <Btn onClick={likeHandler} $color={LikeColor}>
             좋아요
           </Btn>
-          <Btn onClick={unLikeHandler} $BgColor={unLikeColor}>
+          <Btn onClick={unLikeHandler} $color={unLikeColor}>
             별로에요
           </Btn>
         </BtnWrap>

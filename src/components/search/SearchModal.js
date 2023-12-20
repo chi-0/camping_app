@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { SearchMap } from "./SearchMap";
 import { SearchCon } from "./SearchCon";
-import { SearchModalHeader } from "./SearchModalHeader";
 
 const Wrap = styled.div`
   width: 100%;
@@ -15,6 +14,7 @@ const Wrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 99;
 `;
 
 const Modal = styled.div`
@@ -27,14 +27,14 @@ const Modal = styled.div`
 const ModalWrap = styled.div`
   display: flex;
   width: 100%;
-  height: 90%;
+  padding-top: 40px;
+  height: 100%;
 `;
 
 export const SearchModal = () => {
   return (
     <Wrap>
       <Modal>
-        <SearchModalHeader />
         <ModalWrap>
           <SearchMap />
           <SearchCon />

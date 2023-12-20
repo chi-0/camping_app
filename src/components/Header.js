@@ -49,7 +49,7 @@ const Nav = styled.div`
 export const Header = () => {
   return (
     <HearderWrap>
-      <Link to={"/"}>캠핑갈까?</Link>
+      <Link to={"/"}>캠핑갈까</Link>
       <NavWrap>
         <Nav>
           <Link to={"my_camping"}>나의 캠핑장</Link>

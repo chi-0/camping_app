@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
-export const mainColor = "#5fcc29";
+export const mainColor = "#EF4040";
 
 const GlobalStyle = createGlobalStyle`
 

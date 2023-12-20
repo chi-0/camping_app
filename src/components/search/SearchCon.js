@@ -11,9 +11,10 @@ import {
   faThumbsUp as regularUp,
 } from "@fortawesome/free-regular-svg-icons";
 
-import notImage from "./img/notImage.jpg";
+import notImage from "./img/notImage.png";
 import { Link } from "react-router-dom";
 import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { SearchCloseBtn } from "./SearchCloseBtn";
 
 const Wrap = styled.div`
   width: 40%;
@@ -25,21 +26,19 @@ const Wrap = styled.div`
 
 const InnerWrap = styled.div`
   display: flex;
-  justify-content: space-between;
+  column-gap: 20px;
   align-items: center;
   margin-bottom: 10px;
-  height: 5%;
 `;
 
 const Alert = styled.h3`
   font-size: 15px;
   font-weight: 500;
-  opacity: 0.5;
 `;
 
 const ConWrap = styled.div`
-  width: 100%;
-  height: 93%;
+  width: 93%;
+  height: 89%;
   overflow-y: scroll;
 `;
 
@@ -48,12 +47,11 @@ const Con = styled.div`
   display: flex;
   column-gap: 15px;
   border-bottom: 1px solid #dcdcdc;
-  padding: 8px;
+  padding: 25px 10px;
 `;
 
 const ConImg = styled.img`
-  width: 160px;
-  height: 160px;
+  width: 47%;
   border-radius: 10px;
 `;
 
@@ -147,6 +145,7 @@ export const SearchCon = () => {
   }, [campingData, count]);
 
   const upHandler = (e) => {
+    e.preventDefault();
     const target = e.currentTarget;
     const siblingTarget = target.nextSibling;
     setCount((prev) => prev + 1);
@@ -160,6 +159,7 @@ export const SearchCon = () => {
   };
 
   const downHandler = (e) => {
+    e.preventDefault();
     const target = e.currentTarget;
     const siblingTarget = target.previousSibling;
     setCount((prev) => prev + 1);
@@ -177,6 +177,7 @@ export const SearchCon = () => {
       <InnerWrap>
         <Alert>'{value}' 검색 결과</Alert>
         <SearchSelect data={distanceData} />
+        <SearchCloseBtn />
       </InnerWrap>
       <ConWrap>
         {campingValid ? (
@@ -190,54 +191,62 @@ export const SearchCon = () => {
         ) : (
           <>
             {campingData?.map((data, index) => (
-              <Con key={data.contentId}>
-                <ConImg
-                  src={data.firstImageUrl ? data.firstImageUrl : notImage}
-                  alt={data.facltNm}
-                />
-                <ConInnerWrap>
-                  <TextWrap>
-                    <Title>{data.facltNm}</Title>
-                    <Address>{data.addr1}</Address>
-                  </TextWrap>
-                  <BtnWrap>
-                    <Link
-                      to={
-                        data.homepage === ""
-                          ? `https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=${data.facltNm}`
-                          : data.homepage
-                      }
-                      target="_blank"
-                    >
-                      바로가기
-                    </Link>
-                    <IconWrap>
-                      <Btn className="upChecked" onClick={upHandler}>
-                        {ups && (
-                          <>
-                            {ups[index]?.classList.contains("check") ? (
-                              <FontAwesomeIcon icon={faThumbsUp} />
-                            ) : (
-                              <FontAwesomeIcon icon={regularUp} />
-                            )}
-                          </>
-                        )}
-                      </Btn>
-                      <Btn className="downChecked" onClick={downHandler}>
-                        {downs && (
-                          <>
-                            {downs[index]?.classList.contains("check") ? (
-                              <FontAwesomeIcon icon={faThumbsDown} />
-                            ) : (
-                              <FontAwesomeIcon icon={regularDown} />
-                            )}
-                          </>
-                        )}
-                      </Btn>
-                    </IconWrap>
-                  </BtnWrap>
-                </ConInnerWrap>
-              </Con>
+              <Link
+                to={
+                  data.homepage === ""
+                    ? `https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=${data.facltNm}`
+                    : data.homepage
+                }
+              >
+                <Con key={data.contentId}>
+                  <ConImg
+                    src={data.firstImageUrl ? data.firstImageUrl : notImage}
+                    alt={data.facltNm}
+                  />
+                  <ConInnerWrap>
+                    <TextWrap>
+                      <Title>{data.facltNm}</Title>
+                      <Address>{data.addr1}</Address>
+                    </TextWrap>
+                    <BtnWrap>
+                      <Link
+                        to={
+                          data.homepage === ""
+                            ? `https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=${data.facltNm}`
+                            : data.homepage
+                        }
+                        target="_blank"
+                      >
+                        바로가기
+                      </Link>
+                      <IconWrap>
+                        <Btn className="upChecked" onClick={upHandler}>
+                          {ups && (
+                            <>
+                              {ups[index]?.classList.contains("check") ? (
+                                <FontAwesomeIcon icon={faThumbsUp} />
+                              ) : (
+                                <FontAwesomeIcon icon={regularUp} />
+                              )}
+                            </>
+                          )}
+                        </Btn>
+                        <Btn className="downChecked" onClick={downHandler}>
+                          {downs && (
+                            <>
+                              {downs[index]?.classList.contains("check") ? (
+                                <FontAwesomeIcon icon={faThumbsDown} />
+                              ) : (
+                                <FontAwesomeIcon icon={regularDown} />
+                              )}
+                            </>
+                          )}
+                        </Btn>
+                      </IconWrap>
+                    </BtnWrap>
+                  </ConInnerWrap>
+                </Con>
+              </Link>
             ))}
           </>
         )}

@@ -5,10 +5,13 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { mainColor } from "../../style/GlobalStyled";
 
-const FormWrap = styled.div``;
+const FormWrap = styled.div`
+  transform: rotateY(180deg);
+`;
 
 const Title = styled.h3`
-  font-size: 28px;
+  font-size: 48px;
+  letter-spacing: -2.5px;
   font-weight: 600;
   color: white;
   margin-bottom: 15px;
@@ -24,9 +27,9 @@ const Form = styled.form`
   > svg {
     position: absolute;
     top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    font-size: 30px;
+    left: 20px;
+    transform: translateY(-45%);
+    font-size: 20px;
     color: ${mainColor};
   }
 
@@ -41,13 +44,14 @@ const Input = styled.input`
   all: unset;
   padding: 15px 50px;
   box-sizing: border-box;
-  border-radius: 5px;
+  border-radius: 50px;
   font-size: 20px;
   font-weight: 500;
   width: 80vw;
   background-color: rgba(255, 255, 255);
 
   &::placeholder {
+    font-size: 18px;
     color: #cacaca;
   }
 

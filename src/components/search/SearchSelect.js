@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
+import triangle from "./svg/triangle.svg";
 
 const Form = styled.form`
   margin-right: 20px;
@@ -12,8 +13,12 @@ const Select = styled.select`
   font-weight: 500;
   cursor: pointer;
   padding: 5px;
+  padding-right: 20px;
   border-radius: 10px;
   border: 1px solid #cacaca;
+  background-image: url(${triangle});
+  background-repeat: no-repeat;
+  background-position: top 50% right 8%;
 `;
 
 export const SearchSelect = ({ data: distance }) => {

@@ -10,6 +10,7 @@ const MainBg = styled.div`
   align-items: center;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(${bgImg}) no-repeat center / cover;
+  transform: rotateY(180deg);
 `;
 
 export const HomeBg = () => {
