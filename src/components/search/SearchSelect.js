@@ -35,7 +35,7 @@ export const SearchSelect = ({ data: distance }) => {
   return (
     <Form onChange={handleSubmit(selectHandler)}>
       <label htmlFor="캠핑장반경" />
-      <Select {...register("distance")} defaultValue={5000}>
+      <Select id="캠핑장반경" {...register("distance")} defaultValue={5000}>
         <option value={5000}>5km이내</option>
         <option value={8000}>8km이내</option>
         <option value={10000}>10km이내</option>

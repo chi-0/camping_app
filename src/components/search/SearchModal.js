@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { SearchMap } from "./SearchMap";
 import { SearchCon } from "./SearchCon";
+import { useState } from "react";
 
 const Wrap = styled.div`
   width: 100%;
@@ -32,12 +33,18 @@ const ModalWrap = styled.div`
 `;
 
 export const SearchModal = () => {
+  const [isCampingData, setIsCampingData] = useState();
+
+  const getData = (data) => {
+    setIsCampingData(data);
+  };
+
   return (
     <Wrap>
       <Modal>
         <ModalWrap>
-          <SearchMap />
-          <SearchCon />
+          <SearchMap getData={isCampingData} />
+          <SearchCon getData={getData} />
         </ModalWrap>
       </Modal>
     </Wrap>

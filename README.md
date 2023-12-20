@@ -74,3 +74,4 @@
 - react-redux
 - redux
 - gh-pages
+- react-spinners

@@ -9,13 +9,16 @@ const Map = styled.div`
   border-radius: 10px;
 `;
 
-export const SearchMap = () => {
+export const SearchMap = ({ getData }) => {
   const { kakao } = window;
 
   const { isLat, isLon } = useSelector((state) => state.coordReducer);
   const dispatch = useDispatch();
 
   const searchLocation = useSelector((state) => state.location.value);
+
+  const imageSrc =
+    "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
 
   useEffect(() => {
     const container = document.getElementById("map");
@@ -49,7 +52,20 @@ export const SearchMap = () => {
       }
     };
     geocoder.addressSearch(searchLocation, callback); // 좌표 변환
-  }, [kakao.maps, isLat, isLon, searchLocation, dispatch]);
+
+    getData?.map((data) => {
+      const imageSize = new kakao.maps.Size(24, 35);
+
+      const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+      return new kakao.maps.Marker({
+        map: map,
+        position: new kakao.maps.LatLng(data.mapY, data.mapX),
+        title: data.facltNm,
+        image: markerImage,
+      });
+    });
+  }, [kakao.maps, isLat, isLon, searchLocation, dispatch, getData]);
 
   return (
     <>

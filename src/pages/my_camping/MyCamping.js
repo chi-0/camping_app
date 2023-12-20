@@ -4,13 +4,13 @@ import { MyCon } from "./MyCon";
 import { useState } from "react";
 import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
-import { HomeBg } from "../home/HomeBg";
+import { mainColor } from "../../style/GlobalStyled";
 
 const Wrap = styled.div`
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding-top: 90px;
+  padding: 90px 5% 120px;
 `;
 
 const BtnWrap = styled.div`
@@ -39,7 +39,7 @@ const Btn = styled.button`
 `;
 
 export const MyCamping = () => {
-  const [LikeColor, setLikeColor] = useState("#111");
+  const [LikeColor, setLikeColor] = useState(mainColor);
   const [unLikeColor, setUnLikeColor] = useState("#cacaca");
   const [num, setNum] = useState(0);
   const [count, setCount] = useState(0);
@@ -48,12 +48,12 @@ export const MyCamping = () => {
 
   const likeHandler = () => {
     setUnLikeColor("#cacaca");
-    setLikeColor("#111");
+    setLikeColor(mainColor);
     setNum(0);
   };
 
   const unLikeHandler = () => {
-    setUnLikeColor("#111");
+    setUnLikeColor(mainColor);
     setLikeColor("#cacaca");
     setNum(1);
   };
@@ -66,13 +66,12 @@ export const MyCamping = () => {
 
   return (
     <Container>
-      <HomeBg />
       <Wrap>
         <BtnWrap>
-          <Btn onClick={likeHandler} $color={LikeColor}>
+          <Btn onClick={likeHandler} $color={LikeColor} title="좋아요 탭">
             좋아요
           </Btn>
-          <Btn onClick={unLikeHandler} $color={unLikeColor}>
+          <Btn onClick={unLikeHandler} $color={unLikeColor} title="별로에요 탭">
             별로에요
           </Btn>
         </BtnWrap>

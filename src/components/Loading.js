@@ -1,21 +1,20 @@
+import { BounceLoader } from "react-spinners";
+import { mainColor } from "../style/GlobalStyled";
 import styled from "styled-components";
 
 const Wrap = styled.div`
-  display: ${(props) => props.$display};
-  width: 600px;
-  height: 600px;
-
-  @media screen and (max-width: 800px) {
-    width: 100%;
-    padding: 10px;
-    align-items: flex-start;
-  }
+  width: 100%;
+  height: 100%;
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-export const Loading = ({ alert }) => {
+export const Loading = () => {
   return (
-    <Wrap $display={alert ? "block" : "none"}>
-      <p>{alert}</p>
+    <Wrap>
+      <BounceLoader color={mainColor} size={50} />
     </Wrap>
   );
 };

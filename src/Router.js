@@ -7,6 +7,7 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { SearchModal } from "./components/search/SearchModal";
 import { useSelector } from "react-redux";
+import { Banner } from "./components/Banner";
 
 export const Router = () => {
   const modalValid = useSelector((state) => state.modalReducer);
@@ -16,6 +17,8 @@ export const Router = () => {
       <GlobalStyled />
 
       <Header />
+
+      <Banner />
 
       {modalValid && <SearchModal />}
 

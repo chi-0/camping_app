@@ -3,14 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { mainColor } from "../../style/GlobalStyled";
+import { mainColor } from "../style/GlobalStyled";
 
 const FormWrap = styled.div`
   transform: rotateY(180deg);
 `;
 
 const Title = styled.h3`
-  font-size: 48px;
+  font-size: 32px;
   letter-spacing: -2.5px;
   font-weight: 600;
   color: white;
@@ -28,7 +28,7 @@ const Form = styled.form`
     position: absolute;
     top: 50%;
     left: 20px;
-    transform: translateY(-45%);
+    transform: translateY(-22%);
     font-size: 20px;
     color: ${mainColor};
   }
@@ -49,6 +49,7 @@ const Input = styled.input`
   font-weight: 500;
   width: 80vw;
   background-color: rgba(255, 255, 255);
+  margin-top: 10px;
 
   &::placeholder {
     font-size: 18px;
@@ -60,7 +61,7 @@ const Input = styled.input`
   }
 `;
 
-export const HomeForm = () => {
+export const BannerForm = () => {
   const dispatch = useDispatch();
 
   const {
@@ -87,14 +88,16 @@ export const HomeForm = () => {
 
   return (
     <FormWrap>
-      <Title>근데 어디로 가지?</Title>
+      <Title>가족이랑 친구들이랑</Title>
+      <Title>캠핑갈땐 캠핑갈까</Title>
       <Form onSubmit={handleSubmit(submitHandler)}>
-        <label htmlFor="검색창" />
+        <label htmlFor="검색" />
         <FontAwesomeIcon icon={faMagnifyingGlass} />
         <Input
           {...register("search", {
             required: true,
           })}
+          id="검색"
           type="text"
           placeholder="지역을 검색해보세요"
         />

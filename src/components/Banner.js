@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { HomeForm } from "./HomeForm";
 import bgImg from "./img/camping3.jpg";
+import { BannerForm } from "./BannerForm";
 
 const MainBg = styled.div`
   width: 100%;
@@ -13,10 +13,10 @@ const MainBg = styled.div`
   transform: rotateY(180deg);
 `;
 
-export const HomeBg = () => {
+export const Banner = () => {
   return (
     <MainBg>
-      <HomeForm />
+      <BannerForm />
     </MainBg>
   );
 };

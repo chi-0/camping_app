@@ -5,44 +5,29 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 const Wrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 40px;
 
-  @media screen and (max-width: 800px) {
-    row-gap: 10px;
-    width: 100%;
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
   }
 `;
 
 const Card = styled.div`
-  width: 600px;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-  height: fit-content;
   position: relative;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-
-  @media screen and (max-width: 800px) {
-    width: 100%;
-    padding: 10px;
-    align-items: flex-start;
-  }
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 15px;
 `;
 
 const Img = styled.img`
-  width: 148px;
-  height: 148px;
-  margin-right: 35px;
+  width: 100%;
+  height: 190px;
   border-radius: 10px;
-
-  @media screen and (max-width: 800px) {
-    margin-right: 15px;
-    width: 98px;
-    height: 130px;
-  }
+  margin-bottom: 5px;
 `;
 
 const TextWrap = styled.div`
@@ -50,41 +35,25 @@ const TextWrap = styled.div`
 `;
 
 const Title = styled.h3`
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 700;
-  margin-bottom: 5px;
-
-  @media screen and (max-width: 800px) {
-    font-size: 15px;
-    margin-top: 5px;
-  }
+  margin-bottom: 8px;
 `;
 
 const Address = styled.p`
-  font-size: 18px;
-  font-weight: 500;
-
-  @media screen and (max-width: 800px) {
-    font-size: 15px;
-  }
+  font-size: 15px;
+  margin-bottom: 10px;
 `;
 
 const Btn = styled.button`
   all: unset;
-  font-size: 25px;
+  font-size: 20px;
   color: ${mainColor};
-  position: absolute;
-  top: 20px;
-  right: 20px;
   width: fit-content;
   height: fit-content;
   cursor: pointer;
-
-  @media screen and (max-width: 800px) {
-    font-size: 20px;
-    top: 120px;
-    right: 10px;
-  }
+  position: relative;
+  left: 90%;
 `;
 
 export const MyCon = ({ data, icon, count }) => {
@@ -93,7 +62,8 @@ export const MyCon = ({ data, icon, count }) => {
   const clickHandler = (e) => {
     e.preventDefault();
     const { iconName } = icon;
-    const title = e.currentTarget.previousSibling.childNodes[0].innerText;
+    const title = e.currentTarget.previousSibling.previousSibling.innerText;
+    console.log(title);
 
     if (iconName === "thumbs-up") {
       myConDispatch({
@@ -115,24 +85,22 @@ export const MyCon = ({ data, icon, count }) => {
   return (
     <Wrap>
       {data.length === 0 ? (
-        <Card>
-          <TextWrap>
-            <Title>등록된 캠핑장이 없습니다.</Title>
-          </TextWrap>
-        </Card>
+        <TextWrap>
+          <Title>등록된 캠핑장이 없습니다.</Title>
+        </TextWrap>
       ) : (
         <>
           {data?.map((data) => (
             <Link key={data.id} to={data.homeUrl} target="_blank">
               <Card>
-                <Img src={data.url} alt={data.title} />
+                <Img src={data.imgUrl} alt={data.title} />
                 <TextWrap>
                   <Title>{data.title}</Title>
                   <Address>{data.address}</Address>
+                  <Btn onClick={clickHandler} title="삭제">
+                    <FontAwesomeIcon icon={icon} />
+                  </Btn>
                 </TextWrap>
-                <Btn onClick={clickHandler}>
-                  <FontAwesomeIcon icon={icon} />
-                </Btn>
               </Card>
             </Link>
           ))}

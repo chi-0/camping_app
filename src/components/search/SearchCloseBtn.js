@@ -9,6 +9,9 @@ const CloseBtn = styled.button`
   height: fit-content;
   cursor: pointer;
   font-size: 23px;
+  position: absolute;
+  top: 0;
+  right: 7%;
 `;
 
 export const SearchCloseBtn = () => {
