@@ -75,7 +75,7 @@ const ModalWrap = styled.div`
   }
 
   @media screen and (max-width: 800px) {
-    height: 82%;
+    height: 88%;
   }
 `;
 
