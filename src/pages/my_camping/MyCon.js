@@ -14,6 +14,11 @@ const Wrap = styled.div`
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
   }
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
 `;
 
 const Card = styled.div`
@@ -30,22 +35,38 @@ const Img = styled.img`
   width: 100%;
   height: 190px;
   border-radius: 10px 10px 0 0;
+
+  @media screen and (max-width: 800px) {
+    height: 180px;
+  }
 `;
 
 const TextWrap = styled.div`
   letter-spacing: -1px;
   padding: 15px;
+
+  @media screen and (max-width: 800px) {
+    padding: 10px;
+  }
 `;
 
 const Title = styled.h3`
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 8px;
+
+  @media screen and (max-width: 800px) {
+    font-size: 16px;
+  }
 `;
 
 const Address = styled.p`
   font-size: 15px;
   margin-bottom: 10px;
+
+  @media screen and (max-width: 800px) {
+    font-size: 14px;
+  }
 `;
 
 const Btn = styled.button`
@@ -57,6 +78,10 @@ const Btn = styled.button`
   cursor: pointer;
   position: relative;
   left: 90%;
+
+  @media screen and (max-width: 800px) {
+    font-size: 18px;
+  }
 `;
 
 export const MyCon = ({ data, icon, count }) => {

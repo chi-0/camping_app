@@ -17,6 +17,10 @@ const Wrap = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 99;
+
+  @media screen and (max-width: 800px) {
+    align-items: end;
+  }
 `;
 
 const Modal = styled.div`
@@ -28,6 +32,21 @@ const Modal = styled.div`
   @media screen and (max-width: 1000px) {
     padding: 50px 10px 0;
     position: relative;
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 100vw;
+    height: 85vh;
+    animation: modal_action 0.2s ease;
+
+    @keyframes modal_action {
+      from {
+        transform: translateY(100%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
   }
 `;
 
@@ -53,6 +72,10 @@ const ModalWrap = styled.div`
     overflow-y: scroll;
     height: 92%;
     padding: 0;
+  }
+
+  @media screen and (max-width: 800px) {
+    height: 82%;
   }
 `;
 

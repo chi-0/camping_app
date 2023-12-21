@@ -15,6 +15,12 @@ const Title = styled.h3`
   font-weight: 600;
   color: white;
   margin-bottom: 15px;
+
+  @media screen and (max-width: 800px) {
+    font-size: 28px;
+    letter-spacing: -2px;
+    margin-bottom: 10px;
+  }
 `;
 
 const Form = styled.form`
@@ -35,7 +41,8 @@ const Form = styled.form`
 
   @media screen and (max-width: 800px) {
     > svg {
-      font-size: 23px;
+      font-size: 14px;
+      transform: translateY(-10%);
     }
   }
 `;
@@ -57,7 +64,12 @@ const Input = styled.input`
   }
 
   @media screen and (max-width: 800px) {
-    font-size: 14px;
+    font-size: 16px;
+    padding: 12px 50px;
+
+    &::placeholder {
+      font-size: 14px;
+    }
   }
 `;
 

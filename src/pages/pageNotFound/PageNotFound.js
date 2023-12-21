@@ -8,6 +8,7 @@ const Wrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 60px 3%;
 
   > img {
     max-width: 640px;

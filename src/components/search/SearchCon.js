@@ -29,10 +29,9 @@ const Wrap = styled.div`
   }
 
   @media screen and (max-width: 1000px) {
-    width: 100%;
+    width: 85%;
+    margin: 0 auto;
     margin-top: 30px;
-    display: flex;
-    justify-content: center;
     padding: 0;
   }
 `;
@@ -45,10 +44,12 @@ const InnerWrap = styled.div`
   position: relative;
 
   @media screen and (max-width: 1000px) {
+    width: fit-content;
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: 15px;
     align-items: start;
-    padding-top: 25px;
+    padding: 0;
+    margin-bottom: 0;
   }
 `;
 
@@ -74,7 +75,7 @@ const ConWrap = styled.div`
 
   @media screen and (max-width: 1000px) {
     overflow: visible;
-    width: 75%;
+    width: 100%;
   }
 `;
 
@@ -84,6 +85,14 @@ const Con = styled.div`
   column-gap: 15px;
   border-bottom: 1px solid #dcdcdc;
   padding: 25px 10px;
+
+  @media screen and (max-width: 1000px) {
+    padding: 25px 0;
+  }
+
+  @media screen and (max-width: 800px) {
+    padding: 20px 0;
+  }
 `;
 
 const ConImg = styled.img`

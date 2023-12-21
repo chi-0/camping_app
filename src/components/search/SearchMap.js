@@ -12,9 +12,13 @@ const Map = styled.div`
   }
 
   @media screen and (max-width: 1000px) {
-    width: 90%;
+    width: 85%;
     height: 60%;
     margin: 0 auto;
+  }
+
+  @media screen and (max-width: 800px) {
+    height: 50%;
   }
 `;
 

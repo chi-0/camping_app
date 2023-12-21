@@ -11,6 +11,10 @@ const Wrap = styled.div`
   width: 100%;
   margin: 0 auto;
   padding: 90px 3% 120px;
+
+  @media screen and (max-width: 800px) {
+    padding: 60px 3% 90px;
+  }
 `;
 
 const BtnWrap = styled.div`
@@ -35,6 +39,11 @@ const Btn = styled.button`
   }
   &:nth-child(2) {
     color: ${(props) => props.$color};
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 16px;
+    padding: 3px;
   }
 `;
 
