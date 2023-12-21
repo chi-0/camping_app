@@ -10,7 +10,7 @@ const Wrap = styled.div`
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 90px 5% 120px;
+  padding: 90px 3% 120px;
 `;
 
 const BtnWrap = styled.div`

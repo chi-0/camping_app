@@ -23,6 +23,18 @@ const Wrap = styled.div`
   border-radius: 10px;
   padding-left: 20px;
   letter-spacing: -1px;
+
+  @media screen and (max-width: 1200px) {
+    width: 50%;
+  }
+
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
 `;
 
 const InnerWrap = styled.div`
@@ -31,6 +43,13 @@ const InnerWrap = styled.div`
   align-items: center;
   margin-bottom: 10px;
   position: relative;
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: start;
+    padding-top: 25px;
+  }
 `;
 
 const Alert = styled.h3`
@@ -38,10 +57,25 @@ const Alert = styled.h3`
   font-weight: 500;
 `;
 
+const CloseBtnWrap = styled.div`
+  position: absolute;
+  top: 0;
+  right: 7%;
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+`;
+
 const ConWrap = styled.div`
   width: 93%;
   height: 89%;
   overflow-y: scroll;
+
+  @media screen and (max-width: 1000px) {
+    overflow: visible;
+    width: 75%;
+  }
 `;
 
 const Con = styled.div`
@@ -75,10 +109,13 @@ const Title = styled.h3`
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 12px;
+  line-height: 22px;
 `;
 
 const Address = styled.span`
   font-size: 15px;
+  line-height: 19px;
+  margin-bottom: 15px;
 `;
 
 const BtnWrap = styled.div`
@@ -113,6 +150,10 @@ const Btn = styled.button`
   &:hover {
     color: ${mainColor};
   }
+`;
+
+const Message = styled.p`
+  margin-top: 20px;
 `;
 
 export const SearchCon = ({ getData }) => {
@@ -238,78 +279,88 @@ export const SearchCon = ({ getData }) => {
       <InnerWrap>
         <Alert>'{value}' 검색 결과</Alert>
         <SearchSelect data={distanceData} />
-        <SearchCloseBtn />
+        <CloseBtnWrap>
+          <SearchCloseBtn />
+        </CloseBtnWrap>
       </InnerWrap>
       <ConWrap>
         {campingValid ? (
           inputValid === 0 ? (
-            "검색 결과가 없습니다. 지역명이 맞는지 확인해주세요"
+            <Message>
+              검색 결과가 없습니다. 지역명이 맞는지 확인해주세요
+            </Message>
           ) : (
             <Loading />
           )
         ) : inputValid === 0 ? (
-          "검색 결과가 없습니다. 지역명이 맞는지 확인해주세요"
+          <Message>검색 결과가 없습니다. 지역명이 맞는지 확인해주세요</Message>
         ) : (
           <>
-            {campingData?.map((data, index) => (
-              <Link
-                key={data.contentId}
-                to={
-                  data.homepage === ""
-                    ? `https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=${data.facltNm}`
-                    : data.homepage
-                }
-                target="_blank"
-              >
-                <Con>
-                  <ConImg
-                    src={data.firstImageUrl ? data.firstImageUrl : notImage}
-                    alt={data.facltNm}
-                  />
-                  <ConInnerWrap>
-                    <TextWrap>
-                      <Title>{data.facltNm}</Title>
-                      <Address>{data.addr1}</Address>
-                    </TextWrap>
-                    <BtnWrap>
-                      <SortBtn title="바로가기">바로가기</SortBtn>
-                      <IconWrap>
-                        <Btn
-                          className="upChecked"
-                          onClick={upHandler}
-                          title="좋아요"
-                        >
-                          {ups && (
-                            <>
-                              {ups[index]?.classList.contains("check") ? (
-                                <FontAwesomeIcon icon={faThumbsUp} />
-                              ) : (
-                                <FontAwesomeIcon icon={regularUp} />
+            {!campingData ? (
+              <Message>주변에 캠핑장이 없습니다</Message>
+            ) : (
+              <>
+                {campingData?.map((data, index) => (
+                  <Link
+                    key={data.contentId}
+                    to={
+                      data.homepage === ""
+                        ? `https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=${data.facltNm}`
+                        : data.homepage
+                    }
+                    target="_blank"
+                  >
+                    <Con>
+                      <ConImg
+                        src={data.firstImageUrl ? data.firstImageUrl : notImage}
+                        alt={data.facltNm}
+                      />
+                      <ConInnerWrap>
+                        <TextWrap>
+                          <Title>{data.facltNm}</Title>
+                          <Address>{data.addr1}</Address>
+                        </TextWrap>
+                        <BtnWrap>
+                          <SortBtn title="바로가기">바로가기</SortBtn>
+                          <IconWrap>
+                            <Btn
+                              className="upChecked"
+                              onClick={upHandler}
+                              title="좋아요"
+                            >
+                              {ups && (
+                                <>
+                                  {ups[index]?.classList.contains("check") ? (
+                                    <FontAwesomeIcon icon={faThumbsUp} />
+                                  ) : (
+                                    <FontAwesomeIcon icon={regularUp} />
+                                  )}
+                                </>
                               )}
-                            </>
-                          )}
-                        </Btn>
-                        <Btn
-                          className="downChecked"
-                          onClick={downHandler}
-                          title="별로에요"
-                        >
-                          {downs && (
-                            <>
-                              {downs[index]?.classList.contains("check") ? (
-                                <FontAwesomeIcon icon={faThumbsDown} />
-                              ) : (
-                                <FontAwesomeIcon icon={regularDown} />
+                            </Btn>
+                            <Btn
+                              className="downChecked"
+                              onClick={downHandler}
+                              title="별로에요"
+                            >
+                              {downs && (
+                                <>
+                                  {downs[index]?.classList.contains("check") ? (
+                                    <FontAwesomeIcon icon={faThumbsDown} />
+                                  ) : (
+                                    <FontAwesomeIcon icon={regularDown} />
+                                  )}
+                                </>
                               )}
-                            </>
-                          )}
-                        </Btn>
-                      </IconWrap>
-                    </BtnWrap>
-                  </ConInnerWrap>
-                </Con>
-              </Link>
-            ))}
+                            </Btn>
+                          </IconWrap>
+                        </BtnWrap>
+                      </ConInnerWrap>
+                    </Con>
+                  </Link>
+                ))}
+              </>
+            )}
           </>
         )}
       </ConWrap>

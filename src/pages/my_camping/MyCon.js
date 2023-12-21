@@ -17,25 +17,28 @@ const Wrap = styled.div`
 `;
 
 const Card = styled.div`
-  position: relative;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
-  padding: 15px;
+  position: relative;
+
+  &:hover .hoverBg {
+    opacity: 1;
+  }
 `;
 
 const Img = styled.img`
   width: 100%;
   height: 190px;
-  border-radius: 10px;
-  margin-bottom: 5px;
+  border-radius: 10px 10px 0 0;
 `;
 
 const TextWrap = styled.div`
   letter-spacing: -1px;
+  padding: 15px;
 `;
 
 const Title = styled.h3`
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 700;
   margin-bottom: 8px;
 `;
@@ -96,7 +99,7 @@ export const MyCon = ({ data, icon, count }) => {
                 <Img src={data.imgUrl} alt={data.title} />
                 <TextWrap>
                   <Title>{data.title}</Title>
-                  <Address>{data.address}</Address>
+                  <Address>{data.address.slice(0, 15) + "..."}</Address>
                   <Btn onClick={clickHandler} title="삭제">
                     <FontAwesomeIcon icon={icon} />
                   </Btn>

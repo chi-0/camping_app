@@ -23,7 +23,7 @@ const ConWrap = styled.div`
 const Con = styled.img`
   width: 100%;
   border-radius: 10px;
-  margin-bottom: 7px;
+  margin-bottom: 15px;
 `;
 
 const ConName = styled.h4`

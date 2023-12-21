@@ -5,8 +5,17 @@ import styled from "styled-components";
 const Map = styled.div`
   width: 60%;
   height: 100%;
-  background-color: gray;
   border-radius: 10px;
+
+  @media screen and (max-width: 1200px) {
+    width: 50%;
+  }
+
+  @media screen and (max-width: 1000px) {
+    width: 90%;
+    height: 60%;
+    margin: 0 auto;
+  }
 `;
 
 export const SearchMap = ({ getData }) => {
