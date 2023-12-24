@@ -91,21 +91,23 @@ export const MyCon = ({ data, icon, count }) => {
     e.preventDefault();
     const { iconName } = icon;
     const title = e.currentTarget.previousSibling.previousSibling.innerText;
-    console.log(title);
+    const confirm = window.confirm("삭제하시겠습니까?");
 
     if (iconName === "thumbs-up") {
-      myConDispatch({
-        type: "REMOVE_LIKE",
-        id: Math.random(),
-        title: title,
-      });
+      confirm &&
+        myConDispatch({
+          type: "REMOVE_LIKE",
+          id: Math.random(),
+          title: title,
+        });
       count(1);
     } else if (iconName === "thumbs-down") {
-      myConDispatch({
-        type: "REMOVE_UNLIKE",
-        id: Math.random(),
-        title: title,
-      });
+      confirm &&
+        myConDispatch({
+          type: "REMOVE_UNLIKE",
+          id: Math.random(),
+          title: title,
+        });
       count(1);
     }
   };

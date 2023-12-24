@@ -3,6 +3,7 @@ import { SearchMap } from "./SearchMap";
 import { SearchCon } from "./SearchCon";
 import { useState } from "react";
 import { SearchCloseBtn } from "./SearchCloseBtn";
+import { useDispatch } from "react-redux";
 
 const Wrap = styled.div`
   width: 100%;
@@ -78,16 +79,25 @@ const ModalWrap = styled.div`
     height: 88%;
   }
 `;
-
 export const SearchModal = () => {
   const [isCampingData, setIsCampingData] = useState();
+  const dispatch = useDispatch();
 
   const getData = (data) => {
     setIsCampingData(data);
   };
 
+  const clickHandler = (e) => {
+    const target = e.target;
+    const currentTarget = e.currentTarget;
+    target === currentTarget &&
+      dispatch({
+        type: "CLOSE",
+      });
+  };
+
   return (
-    <Wrap>
+    <Wrap onClick={clickHandler}>
       <Modal>
         <BtnWrap>
           <SearchCloseBtn />
