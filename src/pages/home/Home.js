@@ -3,6 +3,7 @@ import { Container } from "../../components/Container";
 import { HomePopular } from "./HomePopular";
 import { getPopular } from "../../api";
 import { Loading } from "../../components/Loading";
+import { HelmetTitle } from "../../components/HelmetTitle";
 
 export const Home = () => {
   const query = useQuery({
@@ -15,6 +16,8 @@ export const Home = () => {
 
   return (
     <>
+      <HelmetTitle title={"홈"} />
+
       <Container>
         {popularLoading ? (
           <Loading />

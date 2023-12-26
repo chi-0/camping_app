@@ -5,6 +5,7 @@ import { useState } from "react";
 import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 import { mainColor } from "../../style/GlobalStyled";
+import { HelmetTitle } from "../../components/HelmetTitle";
 
 const Wrap = styled.div`
   max-width: 1200px;
@@ -74,22 +75,30 @@ export const MyCamping = () => {
   };
 
   return (
-    <Container>
-      <Wrap>
-        <BtnWrap>
-          <Btn onClick={likeHandler} $color={LikeColor} title="좋아요 탭">
-            좋아요
-          </Btn>
-          <Btn onClick={unLikeHandler} $color={unLikeColor} title="별로에요 탭">
-            별로에요
-          </Btn>
-        </BtnWrap>
-        {num === 0 ? (
-          <MyCon data={likeArr} icon={faThumbsUp} count={counting} />
-        ) : (
-          <MyCon data={unLikeArr} icon={faThumbsDown} count={counting} />
-        )}
-      </Wrap>
-    </Container>
+    <>
+      <HelmetTitle title={"나의 캠핑장"} />
+
+      <Container>
+        <Wrap>
+          <BtnWrap>
+            <Btn onClick={likeHandler} $color={LikeColor} title="좋아요 탭">
+              좋아요
+            </Btn>
+            <Btn
+              onClick={unLikeHandler}
+              $color={unLikeColor}
+              title="별로에요 탭"
+            >
+              별로에요
+            </Btn>
+          </BtnWrap>
+          {num === 0 ? (
+            <MyCon data={likeArr} icon={faThumbsUp} count={counting} />
+          ) : (
+            <MyCon data={unLikeArr} icon={faThumbsDown} count={counting} />
+          )}
+        </Wrap>
+      </Container>
+    </>
   );
 };

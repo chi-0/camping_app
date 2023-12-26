@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Container } from "../../components/Container";
 import bgImg from "./img/camping.png";
+import { HelmetTitle } from "../../components/HelmetTitle";
 
 const Wrap = styled.div`
   width: 100%;
@@ -34,11 +35,15 @@ const Title = styled.h3`
 
 export const PageNotFound = () => {
   return (
-    <Container>
-      <Wrap>
-        <img src={bgImg} alt="pageNotFound" />
-        <Title>찾을 수 없는 페이지입니다.</Title>
-      </Wrap>
-    </Container>
+    <>
+      <HelmetTitle title={"없는 페이지"} />
+
+      <Container>
+        <Wrap>
+          <img src={bgImg} alt="pageNotFound" />
+          <Title>찾을 수 없는 페이지입니다.</Title>
+        </Wrap>
+      </Container>
+    </>
   );
 };

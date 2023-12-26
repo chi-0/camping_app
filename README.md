@@ -75,3 +75,5 @@
 - redux
 - gh-pages
 - react-spinners
+- react-helmet-async
+

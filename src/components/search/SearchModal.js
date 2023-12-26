@@ -39,12 +39,13 @@ const Modal = styled.div`
     width: 100vw;
     height: 85vh;
     animation: modal_action 0.2s ease;
+    border-radius: 10px 10px 0 0;
 
     @keyframes modal_action {
-      from {
+      0% {
         transform: translateY(100%);
       }
-      to {
+      100% {
         transform: translateY(0);
       }
     }
@@ -76,7 +77,7 @@ const ModalWrap = styled.div`
   }
 
   @media screen and (max-width: 800px) {
-    height: 88%;
+    height: 93%;
   }
 `;
 export const SearchModal = () => {
