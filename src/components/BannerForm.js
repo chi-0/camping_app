@@ -23,6 +23,16 @@ const Title = styled.h3`
   }
 `;
 
+const Dot = styled.span`
+  color: ${mainColor};
+  font-size: 75px;
+  line-height: 0;
+
+  @media screen and (max-width: 800px) {
+    font-size: 50px;
+  }
+`;
+
 const Form = styled.form`
   max-width: 800px;
   width: 100%;
@@ -105,7 +115,9 @@ export const BannerForm = () => {
   return (
     <FormWrap>
       <Title>가족이랑 친구들이랑</Title>
-      <Title>캠핑갈땐 캠핑갈까</Title>
+      <Title>
+        캠핑갈땐 캠핑갈까<Dot>.</Dot>
+      </Title>
       <Form onSubmit={handleSubmit(submitHandler)}>
         <label htmlFor="검색" />
         <FontAwesomeIcon icon={faMagnifyingGlass} />

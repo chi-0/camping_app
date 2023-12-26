@@ -39,25 +39,16 @@
 #### 개발 순서
 
     [x] 라우터 연결
-
     [x] 깃허브 연결
-
     [x] 필요한 api 연결
-
     [x] 검색 폼 제작 후 연결 확인
-
     [x] 헤더 제작
-
     [x] 푸터 제작
-
     [x] 검색폼 제작
-
     [x] home 제작
     [x] search 제작
-
     [x] select 폼 제작 후 연결 확인
     [x] my_camping 제작
-
     [x] loading 제작
     [x] 404 제작
     [x] 모바일 반응형 제작
@@ -76,4 +67,3 @@
 - gh-pages
 - react-spinners
 - react-helmet-async
-
