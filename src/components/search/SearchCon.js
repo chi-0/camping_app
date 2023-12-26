@@ -29,7 +29,7 @@ const Wrap = styled.div`
   }
 
   @media screen and (max-width: 1000px) {
-    width: 85%;
+    width: 95%;
     margin: 0 auto;
     margin-top: 30px;
     padding: 0;

@@ -25,13 +25,13 @@ const Wrap = styled.div`
 `;
 
 const Modal = styled.div`
-  width: 80vw;
+  width: 90vw;
   height: 80vh;
   background-color: white;
   border-radius: 10px;
 
   @media screen and (max-width: 1000px) {
-    padding: 50px 10px 0;
+    padding: 80px 10px 0;
     position: relative;
   }
 
@@ -59,7 +59,7 @@ const BtnWrap = styled.div`
     display: block;
     position: absolute;
     top: 25px;
-    right: 40px;
+    right: 10px;
   }
 `;
 

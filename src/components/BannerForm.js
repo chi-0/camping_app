@@ -10,14 +10,14 @@ const FormWrap = styled.div`
 `;
 
 const Title = styled.h3`
-  font-size: 32px;
+  font-size: 46px;
   letter-spacing: -2.5px;
   font-weight: 600;
   color: white;
   margin-bottom: 15px;
 
   @media screen and (max-width: 800px) {
-    font-size: 28px;
+    font-size: 32px;
     letter-spacing: -2px;
     margin-bottom: 10px;
   }
@@ -29,6 +29,7 @@ const Form = styled.form`
   display: flex;
   justify-content: center;
   position: relative;
+  margin-top: 26px;
 
   > svg {
     position: absolute;
@@ -40,6 +41,8 @@ const Form = styled.form`
   }
 
   @media screen and (max-width: 800px) {
+    margin-top: 16px;
+
     > svg {
       font-size: 14px;
       transform: translateY(-10%);

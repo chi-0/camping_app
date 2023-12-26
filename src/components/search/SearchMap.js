@@ -12,7 +12,7 @@ const Map = styled.div`
   }
 
   @media screen and (max-width: 1000px) {
-    width: 85%;
+    width: 95%;
     height: 60%;
     margin: 0 auto;
   }

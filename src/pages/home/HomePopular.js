@@ -13,8 +13,8 @@ const Wrap = styled.div`
 `;
 
 const Title = styled.h3`
-  font-size: 28px;
-  font-weight: 500;
+  font-size: 32px;
+  font-weight: 700;
   margin-bottom: 30px;
 
   @media screen and (max-width: 800px) {
