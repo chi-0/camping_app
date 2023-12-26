@@ -36,7 +36,7 @@ const NavWrap = styled.div`
 
 const Nav = styled.div`
   > a {
-    font-weight: 500;
+    font-weight: 700;
   }
 
   @media screen and (max-width: 800px) {
