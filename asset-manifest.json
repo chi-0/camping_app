@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.js": "/camping_app/static/js/main.644f29ea.js",
+    "main.js": "/camping_app/static/js/main.743a01c7.js",
     "static/media/camping3.jpg": "/camping_app/static/media/camping3.471d259b03db4c00c701.jpg",
     "static/media/notImage.png": "/camping_app/static/media/notImage.dffb20a90d58444fc50d.png",
     "static/media/camping.png": "/camping_app/static/media/camping.b473aa647e8252c5d047.png",
     "index.html": "/camping_app/index.html",
     "static/media/triangle.svg": "/camping_app/static/media/triangle.d5bbd88e03aa6fe443e6c76e9e31bc9f.svg",
-    "main.644f29ea.js.map": "/camping_app/static/js/main.644f29ea.js.map"
+    "main.743a01c7.js.map": "/camping_app/static/js/main.743a01c7.js.map"
   },
   "entrypoints": [
-    "static/js/main.644f29ea.js"
+    "static/js/main.743a01c7.js"
   ]
 }
